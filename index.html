@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Aaradhya</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFFF;--ink:#1D2B44;--soft:#52657F;--blue:#8EC9F5;--red:#E5233D;--sky:#D6EBFC;--card:#F3F9FF;--sun:#FFC857;--on-blue:#14304F;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.05;margin:0}
+main{max-width:640px;margin:0 auto;padding:0 20px 80px}
+section{padding:56px 0 8px}
+h2{font-size:clamp(28px,7vw,38px);margin-bottom:18px;font-weight:800}
+p{margin:0 0 14px;max-width:60ch}
+button{font:inherit;cursor:pointer;border:0;border-radius:999px;padding:14px 26px;background:var(--red);color:#fff;font-weight:500}
+button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+#gate{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:40px 20px;max-width:640px;margin:0 auto}
+#gate h1{font-size:clamp(46px,14vw,92px);font-weight:800;color:var(--red);letter-spacing:-.02em}
+#gate .sub{color:var(--soft);margin:18px 0 28px;font-size:19px}
+#gate .hint{margin-top:14px;font-size:14px;color:var(--soft)}
+#content{display:none}
+#content.on{display:block}
+.hero{background:var(--blue);color:var(--on-blue);border-radius:28px;padding:36px 26px;margin-top:28px}
+.hero h1{font-size:clamp(34px,10vw,56px);font-weight:800}
+.hero p{margin:14px 0 0;opacity:.92}
+.tl{border-left:3px solid var(--blue);margin-left:6px;padding-left:20px}
+.tl div{margin-bottom:22px;position:relative}
+.tl div::before{content:"";position:absolute;left:-30px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--sun);border:3px solid var(--red)}
+.tl b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:20px;display:block}
+.tl span{color:var(--soft)}
+ol.reasons{padding:0;margin:0;list-style:none}
+ol.reasons li{background:var(--card);border-radius:18px;padding:16px 18px;margin-bottom:12px;border:1px solid var(--sky)}
+ol.reasons li:nth-child(even){margin-left:18px}
+ol.reasons li:nth-child(odd){margin-right:18px}
+.meter{background:var(--sky);border-radius:999px;height:26px;overflow:hidden;margin:18px 0 10px}
+#fill{height:100%;width:5%;background:var(--red);border-radius:999px;transition:width .35s ease}
+#egoText{min-height:3.4em;color:var(--soft)}
+.card{background:var(--card);border:1px solid var(--sky);border-radius:22px;padding:24px}
+#promise{display:none;margin-top:18px;background:var(--sky);border-radius:18px;padding:18px}
+#promise.on{display:block}
+#count{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:44px;font-weight:800;color:var(--red)}
+footer{text-align:center;color:var(--soft);padding-top:48px}
+.mute{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;z-index:20;width:44px;height:44px;padding:0;font-size:20px;line-height:1;background:var(--card);color:var(--ink);border:1px solid var(--sky)}
+.heartbox{position:relative;height:290px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--sky);border-radius:28px;margin-top:28px}
+#heartBtn{background:none;padding:0;border-radius:0;width:130px;height:120px;transition:transform .15s}
+#heartBtn svg{width:100%;height:100%;fill:#E5233D}
+#heartBtn:active{transform:scale(.88)}
+.pulse{animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+#heartCount{margin:12px 0 0;color:var(--soft);font-size:15px;text-align:center;position:relative;z-index:1}
+.fly{position:absolute;bottom:110px;font-size:26px;pointer-events:none;animation:fly 1.8s ease-out forwards}
+@keyframes fly{0%{opacity:1;transform:translate(0,0) scale(.6)}100%{opacity:0;transform:translate(var(--dx),-230px) scale(1.3)}}
+@media (prefers-reduced-motion:reduce){#fill{transition:none}.pulse{animation:none}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h1>Happy Birthday, Aaradhya.</h1>
+  <p class="sub">I built you a website. It was this or a very long text, and you deserve better formatting.</p>
+  <button id="openBtn" type="button">Open your gift</button>
+  <p class="hint">Best on your phone. Sound off is fine, ego on is mandatory.</p>
+</div>
+
+<main id="content">
+  <button class="mute" id="muteBtn" type="button" aria-label="Play or stop the music">&#128266;</button>
+  <div class="hero">
+    <h1>You turned a year older. Still undefeated.</h1>
+    <p>This page has been officially reviewed and approved by one very biased boyfriend, who lives far away and thinks about you anyway.</p>
+  </div>
+
+  <div class="heartbox" id="heartBox">
+    <button id="heartBtn" type="button" aria-label="Send a heart"><svg class="pulse" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.7 4.5 6.4 4.5c2 0 3.6 1.1 5.6 3.4 2-2.3 3.6-3.4 5.6-3.4 3.7 0 5.5 3.9 4 7.3C19.5 16.4 12 21 12 21z"/></svg></button>
+    <p id="heartCount" aria-live="polite">Tap the heart</p>
+  </div>
+
+  <section>
+    <h2>How this all started</h2>
+    <div class="tl">
+      <div><b>One month ago</b><span>We met. I was calm and normal. Obviously.</span></div>
+      <div><b>A few days later</b><span>I realised I was smiling at my phone like a fool. Medically unclear.</span></div>
+      <div><b>Since then</b><span>One month of you, and somehow it feels like a plot twist I did not see coming.</span></div>
+      <div><b>Today</b><span>I am building you a website. This is what happens when someone has your attention.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reasons you are the best</h2>
+    <ol class="reasons">
+      <li>You are always right. I have checked. Twice. You also told me.</li>
+      <li>Your laugh is the only notification I never mute.</li>
+      <li>You have the kind of confidence I would pay money to bottle.</li>
+      <li>You are the only person I would happily lose an argument to. Please do not screenshot this.</li>
+      <li>Distance is not a problem. It is just you, loading slowly, in HD.</li>
+      <li>You make a plain Tuesday feel like it has a soundtrack.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Official love meter</h2>
+    <p>Scientists have built a device to measure exactly how much you love me. Be honest. It can tell. Tap the button.</p>
+    <div class="meter" aria-hidden="true"><div id="fill"></div></div>
+    <p id="egoText" aria-live="polite">Current level: 0%. Press the button and be honest.</p>
+    <button id="boost" type="button">Measure the love</button>
+  </section>
+
+  <section>
+    <h2>Until I see you</h2>
+    <div class="card">
+      <div id="count">Soon</div>
+      <p id="countNote">I have no exact date yet, but I am already planning what to say at the airport.</p>
+      <button id="reveal" type="button">One last surprise</button>
+      <div id="promise">
+        <p><b>The promise:</b> on the day I see you, you pick the food, I pay, and you win every argument. I will also deliver one very dramatic hug.</p>
+        <p>Tonight, find a quiet spot. I am calling you. Happy birthday, Aaradhya.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Made with blue skies, bad jokes and way too much affection.</footer>
+</main>
+
+<script>
+// Set this to the date of your next visit, e.g. "2026-12-20", then republish.
+var NEXT_VISIT = "";
+
+var audioCtx = null, playing = false;
+function playTune() {
+  var AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  try {
+    audioCtx = new AC();
+    var master = audioCtx.createGain();
+    master.gain.value = 0.18;
+    master.connect(audioCtx.destination);
+    var seq = [[392,.75],[392,.25],[440,1],[392,1],[523,1],[494,2],
+               [392,.75],[392,.25],[440,1],[392,1],[587,1],[523,2],
+               [392,.75],[392,.25],[784,1],[659,1],[523,1],[494,1],[440,2],
+               [698,.75],[698,.25],[659,1],[523,1],[587,1],[523,2]];
+    var beat = 0.5, t = audioCtx.currentTime + 0.2, total = 0;
+    seq.forEach(function (n) {
+      var o = audioCtx.createOscillator(), g = audioCtx.createGain(), d = n[1] * beat;
+      o.type = "triangle";
+      o.frequency.value = n[0];
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(1, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.001, t + d * 0.95);
+      o.connect(g); g.connect(master);
+      o.start(t); o.stop(t + d);
+      t += d; total += d;
+    });
+    playing = true;
+    var ctx = audioCtx;
+    setTimeout(function () { if (audioCtx === ctx) { playing = false; document.getElementById("muteBtn").textContent = "\uD83D\uDD07"; } }, total * 1000 + 400);
+    document.getElementById("muteBtn").textContent = "\uD83D\uDD0A";
+  } catch (e) { playing = false; }
+}
+document.getElementById("muteBtn").addEventListener("click", function () {
+  if (playing && audioCtx) { audioCtx.close(); playing = false; this.textContent = "\uD83D\uDD07"; }
+  else { playTune(); }
+});
+
+document.getElementById("openBtn").addEventListener("click", function () {
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("content").classList.add("on");
+  playTune();
+  window.scrollTo(0, 0);
+});
+
+var level = 0;
+var lines = [
+  "Warm-up round. I will take it.",
+  "Rising. I can see you pretending not to smile.",
+  "Interesting. Someone is lying to themselves.",
+  "Almost there. The rest is just shy.",
+  "Overflow. The meter cannot handle this much love. I am taking that as a yes."
+];
+var step = 0;
+document.getElementById("boost").addEventListener("click", function () {
+  var fill = document.getElementById("fill");
+  var text = document.getElementById("egoText");
+  if (step < lines.length) {
+    level = [20, 45, 70, 95, 100][step];
+    text.textContent = "Current level: " + level + "%. " + lines[step];
+    fill.style.width = level + "%";
+    fill.style.background = step >= 4 ? "var(--sun)" : "var(--red)";
+    step++;
+  } else {
+    text.textContent = "The meter is broken. I am keeping the result: she loves me.";
+  }
+});
+
+var hearts = 0;
+document.getElementById("heartBtn").addEventListener("click", function () {
+  var box = document.getElementById("heartBox");
+  hearts++;
+  document.getElementById("heartCount").textContent = "Hearts sent: " + hearts + (hearts % 10 === 0 ? ". That is a lot of love. Do not stop." : "");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  for (var i = 0; i < 6; i++) {
+    var s = document.createElement("span");
+    s.className = "fly";
+    s.textContent = Math.random() < 0.5 ? "\u2764\uFE0F" : "\uD83E\uDD0D";
+    s.style.left = (35 + Math.random() * 30) + "%";
+    s.style.setProperty("--dx", ((Math.random() - 0.5) * 160) + "px");
+    s.style.animationDelay = (i * 60) + "ms";
+    box.appendChild(s);
+    setTimeout(s.remove.bind(s), 2300);
+  }
+});
+
+document.getElementById("reveal").addEventListener("click", function () {
+  document.getElementById("promise").classList.add("on");
+  this.style.display = "none";
+});
+
+(function () {
+  if (!NEXT_VISIT) return;
+  var days = Math.ceil((new Date(NEXT_VISIT + "T00:00:00") - new Date()) / 86400000);
+  if (isNaN(days)) return;
+  var c = document.getElementById("count");
+  var n = document.getElementById("countNote");
+  if (days > 0) { c.textContent = days + (days === 1 ? " day" : " days"); n.textContent = "That is how long until I can annoy you in person."; }
+  else { c.textContent = "Today"; n.textContent = "Look outside. Or behind you."; }
+})();
+</script>
+</body>
+</html>
